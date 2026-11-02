@@ -6,7 +6,7 @@ if (-not (Test-Path $path)) {
 }
 $content = Get-Content $path -Raw
 $needle = 'plugins { id("org.gradle.toolchains.foojay-resolver-convention").version("0.5.0") }'
-$replacement = '// Disabled on locked-down networks. JDK 17 via org.gradle.java.home.
+$replacement = '// Disabled on locked-down networks. Uses JDK 17 from JAVA_HOME.
 // plugins { id("org.gradle.toolchains.foojay-resolver-convention").version("0.5.0") }'
 if ($content -match 'foojay-resolver-convention') {
   if ($content -notmatch '^\s*// plugins \{ id\("org.gradle.toolchains.foojay') {
